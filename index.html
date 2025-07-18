@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doruk Ege Açar | CV</title>
+  <!-- Google Fonts Roboto, güzel ve okunaklı -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -11,101 +12,107 @@
     rel="stylesheet"
   />
   <style>
-    /* Orijinal stil aynen korundu */
+    /* Temel body stili, arka plan koyu, yazı açık */
     body {
       font-family: "Roboto", Arial, sans-serif;
-      background: #10172a;
-      color: #e5e7eb;
+      background: #10172a; /* koyu gece modu havası */
+      color: #e5e7eb; /* açık yazı rengi */
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      min-height: 100vh; /* tam ekran yüksekliği */
       box-sizing: border-box;
       position: relative;
-      overflow-x: hidden;
+      overflow-x: hidden; /* yatay kaydırma olmasın */
     }
     .main-content {
-      max-width: 1200px;
+      max-width: 1200px; /* geniş ekranlarda max genişlik */
       margin: 0 auto;
-      padding: 48px 32px 32px 32px;
+      padding: 48px 32px 32px 32px; /* iç boşluk üstü bol */
       display: flex;
       flex-direction: column;
-      gap: 2.5em;
+      gap: 2.5em; /* bölümler arası boşluk */
       position: relative;
-      z-index: 2; /* canvas'ın üstünde */
+      z-index: 2; /* canvas'ın üstünde kalsın */
     }
     header {
       text-align: left;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.5em; /* başlık ile içerik arası boşluk */
     }
+    /* Başlık biraz büyük ve kalın */
     h1 {
-  font-size: 3.5rem; /* biraz daha büyük */
-  font-weight: 900; /* kalınlaştırdım */
-  margin-bottom: 0.1em;
-  color: #60a5fa;
-  letter-spacing: 1px;
-}
-
-.title {
-  font-size: 1.5rem; /* büyüttüm */
-  font-weight: 800;
-  color: #38bdf8;
-  margin-bottom: 1.2em;
-}
-
-section h2 {
-  font-size: 1.5rem; /* biraz büyüt */
-  font-weight: 900;
-  color: #38bdf8;
-  margin-bottom: 0.6em;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  letter-spacing: 0.5px;
-}
-
-section p,
-.cert-list li,
-.project-list li,
-.skills-list li {
-  font-size: 1.15em; /* biraz büyüttüm */
-  font-weight: 600; /* hafif kalın */
-}
-
+      font-size: 3.5rem; /* büyütüldü */
+      font-weight: 900; /* kalın yapıldı */
+      margin-bottom: 0.1em;
+      color: #60a5fa; /* gözü yormayan mavi ton */
+      letter-spacing: 1px;
+    }
+    /* Alt başlık için stil */
+    .title {
+      font-size: 1.5rem; /* biraz büyütüldü */
+      font-weight: 800; /* kalın */
+      color: #38bdf8;
+      margin-bottom: 1.2em;
+    }
+    /* Bölüm başlıkları */
+    section h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #38bdf8;
+      margin-bottom: 0.6em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      letter-spacing: 0.5px;
+    }
+    /* Paragraflar ve listeler için biraz daha büyük ve kalın yazı */
+    section p,
+    .cert-list li,
+    .project-list li,
+    .skills-list li {
+      font-size: 1.15em;
+      font-weight: 600;
+    }
+    /* Bölüm alt boşluğu */
     section {
       margin-bottom: 0.5em;
     }
+    /* Listeler temiz */
     ul, .skills-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+    /* Skills kısmı yatay ve sarı-beyaz tonlar */
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.7em 1.2em;
     }
     .skills-list li {
-      background: #1e293b;
+      background: #1e293b; /* koyu mavi kutucuk */
       color: #60a5fa;
       padding: 0.5em 1.2em;
-      border-radius: 18px;
+      border-radius: 18px; /* yuvarlak köşe */
       font-size: 1.05em;
       margin-bottom: 0.3em;
       font-weight: 500;
-      box-shadow: 0 2px 8px rgba(24, 60, 120, 0.08);
+      box-shadow: 0 2px 8px rgba(24, 60, 120, 0.08); /* hafif gölge */
     }
+    /* Sertifikalar ve projeler listesi */
     .cert-list li, .project-list li {
       margin-bottom: 0.5em;
       font-size: 1.08em;
     }
     .project-list strong {
-      color: #60a5fa;
+      color: #60a5fa; /* önemli kısımlar mavi */
     }
+    /* Buton grubu */
     .button-group {
       display: flex;
       gap: 1em;
       margin-top: 0.7em;
     }
+    /* Buton stili */
     .btn {
       display: inline-block;
       padding: 0.7em 2em;
@@ -119,14 +126,16 @@ section p,
       text-decoration: none;
       box-shadow: 0 2px 12px rgba(56,189,248,0.10);
       transition: background 0.2s, transform 0.2s;
-      /* Aşağıdaki kısım 3D hover için */
+      /* 3D hover için ekstra */
       transform-style: preserve-3d;
       will-change: transform;
     }
+    /* Buton hover'da renkler değişir ama transform JS tarafından kontrol ediliyor */
     .btn:hover {
       background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
-      /* transform burada js tarafından override edilir */
+      /* transform override edilir */
     }
+    /* Responsive ayarlar */
     @media (max-width: 900px) {
       .main-content {
         padding: 24px 6px 12px 6px;
@@ -147,31 +156,32 @@ section p,
         font-size: 1em;
       }
     }
-    /* Fade-in animasyon sadece içerik için */
+    /* Fade-in animasyon için başlangıç gizli ve biraz aşağıda */
     .fade-in-section {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
+    /* Görünür olduğunda normal pozisyon ve tam opak */
     .fade-in-section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    /* MATRIX CANVAS */
+    /* Matrix yağmuru için canvas konumu ve ayarları */
     #matrix {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
-      pointer-events: none;
+      z-index: 1; /* içeriğin altında */
+      pointer-events: none; /* tıklama engellenir */
       background: transparent;
     }
   </style>
 </head>
 <body>
-  <!-- Matrix canvas -->
+  <!-- Matrix için canvas, full ekran -->
   <canvas id="matrix"></canvas>
 
   <div class="main-content">
@@ -182,6 +192,7 @@ section p,
       </div>
     </header>
 
+    <!-- About Me kısmı fade-in animasyonlu -->
     <section class="fade-in-section">
       <h2>✍️ About Me</h2>
       <p>
@@ -194,11 +205,13 @@ section p,
       </p>
     </section>
 
+    <!-- Eğitim bilgisi -->
     <section class="fade-in-section">
       <h2>🎓 Education</h2>
       <p>9th Grade High School Student</p>
     </section>
 
+    <!-- Sertifikalar -->
     <section class="fade-in-section">
       <h2>📜 Certifications</h2>
       <ul class="cert-list">
@@ -208,6 +221,7 @@ section p,
       </ul>
     </section>
 
+    <!-- Yetenekler -->
     <section class="fade-in-section">
       <h2>🧠 Skills</h2>
       <ul class="skills-list">
@@ -223,6 +237,7 @@ section p,
       </ul>
     </section>
 
+    <!-- Projeler -->
     <section>
       <h2>🛠️ Projects</h2>
       <ul class="project-list">
@@ -258,6 +273,7 @@ section p,
       <p>There's more Projects but these are the best ones</p>
     </section>
 
+    <!-- İletişim -->
     <section>
       <h2>📬 Contact</h2>
       <div class="button-group">
@@ -270,9 +286,10 @@ section p,
   </div>
 
   <script>
-    // Fade-in animasyonları tetikle
+    // Sayfa yüklendiğinde fade-in animasyonlarını tetikliyoruz
     window.addEventListener("load", () => {
       const sections = document.querySelectorAll(".fade-in-section");
+      // Her bir bölümde 400ms gecikme ile sırayla görünür yapıyoruz
       sections.forEach((section, i) => {
         setTimeout(() => {
           section.classList.add("visible");
@@ -280,7 +297,7 @@ section p,
       });
     });
 
-    // Mail kopyalama
+    // Email kopyalama fonksiyonu, tıkla kopyala
     function copyMail() {
       const email = "drkegedrk@gmail.com";
       navigator.clipboard
@@ -289,52 +306,65 @@ section p,
         .catch(() => alert("Failed to copy email."));
     }
 
-    // Button 3D hover efekti
+    // Butonlara 3D hover efekti veriyoruz
     document.querySelectorAll(".btn").forEach((button) => {
       button.addEventListener("mousemove", (e) => {
+        // Butonun konumunu al
         const rect = button.getBoundingClientRect();
+        // Mouse pozisyonunu buton içindeki koordinata çevir
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
+        // Mouse merkezden ne kadar uzak
         const diffX = x - centerX;
         const diffY = y - centerY;
 
+        // Dönme açısını hesapla, max 10 derece
         const rotateX = -(diffY / centerY) * 10;
         const rotateY = -(diffX / centerX) * 10;
 
+        // Butona uygula
         button.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       });
 
+      // Mouse butondan çıkınca dönüşü sıfırla
       button.addEventListener("mouseleave", () => {
         button.style.transform = "none";
       });
     });
 
-    // MATRIX YAĞMURU
+    // Matrix yağmuru efektinin kodları başlıyor
 
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
 
+    // Canvas boyutlarını pencere boyutuna ayarla
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    // Matrix karakterleri, istediğin gibi değiştirilebilir
     const letters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()";
-    const fontSize = 14;
-    const columns = Math.floor(width / fontSize);
+    const fontSize = 14; // karakter boyutu
+    const columns = Math.floor(width / fontSize); // kaç sütun olacağı
 
+    // Her sütunun başlangıç y pozisyonu, rastgele başlatıyoruz
     const drops = [];
     for (let x = 0; x < columns; x++) drops[x] = Math.random() * -1000;
 
+    // Animasyon döngüsü
     function draw() {
-      ctx.fillStyle = "rgba(16, 23, 42, 0.2)"; // hafif karartma
+      // Yarı saydam koyu arka plan çiz, önceki frame'leri az da olsa koru
+      ctx.fillStyle = "rgba(16, 23, 42, 0.2)";
       ctx.fillRect(0, 0, width, height);
 
-      ctx.fillStyle = "#0f0"; // yeşil
+      // Yazı rengi yeşil matrix rengi
+      ctx.fillStyle = "#0f0";
       ctx.font = fontSize + "px monospace";
 
+      // Her sütunda rastgele karakterler çiz
       for (let i = 0; i < columns; i++) {
         const text = letters.charAt(Math.floor(Math.random() * letters.length));
         const x = i * fontSize;
@@ -342,16 +372,21 @@ section p,
 
         ctx.fillText(text, x, y);
 
+        // Eğer aşağı kadar düştüyse ve şans tutarsa tekrar yukarı başlat
         if (y > height && Math.random() > 0.975) drops[i] = 0;
 
+        // Y konumunu aşağı kaydır
         drops[i]++;
       }
 
+      // Sonsuz animasyon için kendini tekrar çağır
       requestAnimationFrame(draw);
     }
 
+    // İlk çağrı, animasyon başlasın
     draw();
 
+    // Pencere boyutu değişirse canvas boyutunu güncelle
     window.addEventListener("resize", () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
